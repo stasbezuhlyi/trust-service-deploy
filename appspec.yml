@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/tomcat/webapps
+permissions:
+  - object: /opt/tomcat/webapps
+    owner: tomcat
+    group: tomcat
+    type:
+      - directory
+      - file
+hooks:
+  ApplicationStart:
+    - location: ./scripts/startup.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: ./scripts/shutdown.sh
+      timeout: 300
+      runas: root
