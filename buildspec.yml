@@ -8,6 +8,7 @@ env:
 phases:
   install:
     commands:
+      - echo $BRANCHNAME
       - wget -O awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
       - unzip awscliv2.zip
       - ./aws/install
